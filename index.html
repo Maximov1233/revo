@@ -20,7 +20,7 @@
             <div class="header-logo">
                 <a href="/">
                     <img src="./img/header/logo.png" alt="revo">
-                </a>  
+                </a>
             </div>
             <div class="header-text">
                 <h1>Your <span>personalized</span> coffee</h1>
@@ -29,6 +29,9 @@
         <div class="header-right">
             <div class="header-cart">
                 <img src="./img/header/cart.png" alt="cart">
+                <div class="header-cart__quantity">
+                    <p></p>
+                </div>
             </div>
             <div class="header-nav">
                 <ul>
@@ -110,88 +113,7 @@
                     <h3>Choose Your Favorite</h3>
                     <p>Standard guarantee</p>
                 </div>
-                <div class="products-list">
-                    <div class="product">
-                        <div class="product-left">
-                            <div class="product-image"><img src="./img/main/products/1.png" alt="1"></div>
-                        </div>
-                        <div class="product-right">
-                            <div class="product-price">
-                                <p>99.000</p>
-                            </div>
-                            <div class="product-name">
-                                <h5>REVO Morning</h5>
-                            </div>
-                            <div class="product-info">
-                                <p>Bitter, sweet aftertaste, floral scent</p>
-                            </div>
-                            <div class="product-buttons">
-                                <div class="product-buy"><button class="button-buy">Buy now</button></div>
-                                <div class="product-details"><button class="button-details">Details</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-left">
-                            <div class="product-image"><img src="./img/main/products/2.png" alt="2"></div>
-                        </div>
-                        <div class="product-right">
-                            <div class="product-price">
-                                <p>85.000</p>
-                            </div>
-                            <div class="product-name">
-                                <h5>REVO Everyday</h5>
-                            </div>
-                            <div class="product-info">
-                                <p>balance, bitter aftertaste, chocolate taste</p>
-                            </div>
-                            <div class="product-buttons">
-                                <div class="product-buy"><button class="button-buy">Buy now</button></div>
-                                <div class="product-details"><button class="button-details">Details</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-left">
-                            <div class="product-image"><img src="./img/main/products/3.png" alt="3"></div>
-                        </div>
-                        <div class="product-right">
-                            <div class="product-price">
-                                <p>139.000</p>
-                            </div>
-                            <div class="product-name">
-                                <h5>REVO Origin</h5>
-                            </div>
-                            <div class="product-info">
-                                <p>Sweet aftertaste, less bitter, strawberry sour taste</p>
-                            </div>
-                            <div class="product-buttons">
-                                <div class="product-buy"><button class="button-buy">Buy now</button></div>
-                                <div class="product-details"><button class="button-details">Details</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-left">
-                            <div class="product-image"><img src="./img/main/products/4.png" alt="4"></div>
-                        </div>
-                        <div class="product-right">
-                            <div class="product-price">
-                                <p>75.000</p>
-                            </div>
-                            <div class="product-name">
-                                <h5>REVO Bold</h5>
-                            </div>
-                            <div class="product-info">
-                                <p>bold, bitter, traditional</p>
-                            </div>
-                            <div class="product-buttons">
-                                <div class="product-buy"><button class="button-buy">Buy now</button></div>
-                                <div class="product-details"><button class="button-details">Details</button></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="products-list"></div>
             </div>
 
         </section>
@@ -428,6 +350,32 @@
             <p>© Revo Coffee Vietnam - 2018</p>
         </div>
     </footer>
+
+    <div class="buy-modal__wrap">
+        <div class="buy-modal">
+            <p>You added this item to the cart</p>
+            <div class="modal-buttons">
+                <div class="modal-cart"><button class="button-cart">Go to cart</button></div>
+                <div class="modal-continue"><button class="button-continue">Continue shopping</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal__wrap">
+        <div class="cart-modal">
+            <div class="cart-modal__properties">
+                <ul>
+                    <li class="li-name">Name</li>
+                    <li class="li-quantity">Quantity</li>
+                    <li class="li-price">Price</li>
+                </ul>
+            </div>
+            <div class="cart-modal__list"></div>
+            <div class="cart-modal__close">
+                <img src="./img/modals/cart/close.png" alt="close">
+            </div>
+        </div>
+    </div>
     <script src="./src/main.js"></script>
 </body>
 

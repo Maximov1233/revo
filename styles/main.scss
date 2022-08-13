@@ -6,6 +6,7 @@
 
 html {
     font-size: 18px;
+    position: relative;
 }
 
 .container {
@@ -35,7 +36,9 @@ html {
     font-weight: bold;
 }
 
-
+ul {
+    list-style: none;
+}
 
 section {
     padding: 80px 0;
@@ -55,7 +58,7 @@ button {
 }
 
 .button {
-    &-details {
+    &-details, &-continue {
         background: none;
         color: #415167;
     }
@@ -63,7 +66,8 @@ button {
 
 .product,
 .tab,
-.item {
+.item,
+.modal {
     &-price {
         font-size: 20px;
         font-weight: 600;
@@ -129,8 +133,28 @@ body {
         }
 
         &-cart {
+            display: block;
             margin-bottom: 120px;
             cursor: pointer;
+            position: relative;
+
+            &__quantity {
+                width: 20px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #C7A17A;
+                border-radius: 50%;
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                display: none;
+
+                p {
+                    color: #F9FBFF;
+                }
+            }
         }
 
         &-nav {
@@ -139,8 +163,6 @@ body {
             min-width: 320px;
 
             ul {
-                list-style: none;
-
                 li {
                     margin-bottom: 30px;
                     cursor: pointer;
@@ -362,6 +384,102 @@ body {
             font-weight: 300;
             font-style: italic;
             color: #415167;
+        }
+    }
+
+    .buy-modal, .cart-modal {
+        background: #fff;
+        padding: 40px 60px;
+        border-radius: 6px;
+        text-align: center;
+        &__wrap {
+            width: 100%;
+            min-height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba($color: #000000, $alpha: 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;          
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    }
+
+    .cart-modal {
+        position: relative;
+
+        &__properties {
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                li {
+                    border: 3px solid green;
+                }
+                .li {
+                    &-name {
+                        min-width: 600px;
+                    }
+                    &-quantity {
+                        min-width: 100px;
+                    }
+                    &-price {
+                        min-width: 200px;
+                    }
+                }
+            }
+        }
+
+        &__list {
+            .cart-item {
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                
+                
+                &__name {
+                    min-width: 600px;
+                }
+                &__quantity {
+                    min-width: 100px;
+                    min-height: 44px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    &-minus, &-add {
+                        color: #fff;
+                        cursor: pointer;
+                    }
+
+                    &-text {
+                        margin: 0 5px;
+                        min-width: 16px;
+                        text-align: top;
+                    }
+                }
+
+                &__price {
+                    min-width: 200px;
+                }
+
+            }
+        }
+
+        &__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
         }
     }
 }
