@@ -361,9 +361,6 @@ body .cart-modal__properties ul {
   justify-content: center;
   align-items: center;
 }
-body .cart-modal__properties ul li {
-  border: 3px solid green;
-}
 body .cart-modal__properties ul .li-name {
   min-width: 600px;
 }
@@ -401,6 +398,9 @@ body .cart-modal__list .cart-item__quantity-text {
 }
 body .cart-modal__list .cart-item__price {
   min-width: 200px;
+}
+body .cart-modal__total {
+  text-align: right;
 }
 body .cart-modal__close {
   position: absolute;
