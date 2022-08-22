@@ -57,9 +57,32 @@ const giftsets = [{
     },
 ];
 
-const giftsetList = document.querySelector('.giftset-list__tabs');
+const combos = [{
+        'img': 1,
+        'price': '147.000',
+        'oldPrice': '155.000',
+        'name': 'Bold Revo Combo',
+        'info': 'The caffeine content in Revo Bold is strong enough to keep you awake to work...'
+    },
+    {
+        'img': 2,
+        'price': '156.000',
+        'oldPrice': '165.000',
+        'name': 'Bold Revo Everyday',
+        'info': 'Revo Everyday is a blend of the bitter taste of Robusta beans and the aroma of...'
+    },
+    {
+        'img': 3,
+        'price': '260.000',
+        'oldPrice': '275.000',
+        'name': 'Combo Revo Honey',
+        'info': 'Honey – in the name Revo Honey comes from the method of processing Arabica beans...'
+    },
+];
 
-const giftsetShow = () => {
+const giftsetShow = () => { // show giftsets
+
+    const giftsetList = document.querySelector('.giftset-list__tabs');
 
     for (let i = 0; i < giftsets.length; i++) {
         let tab = document.createElement('div');
@@ -110,13 +133,12 @@ const giftsetShow = () => {
     }
 }
 
-giftsetShow();
-
 // show products
 
-const productsList = document.querySelector('.products-list');
+const productsShow = () => { // show products
 
-const productsShow = () => {
+    const productsList = document.querySelector('.products-list');
+
     products.forEach(product => {
         let item = document.createElement('div');
         item.classList.add('product');
@@ -144,12 +166,47 @@ const productsShow = () => {
     });
 };
 
+const comboShow = () => {
+    
+    const comboList = document.querySelector('.combo-list'); 
+
+    for (let i = 0; i < combos.length; i++) {
+        let item = document.createElement('div');
+        item.classList.add('item');
+        item.innerHTML = `
+            <div class="item-image">
+                <img src="./img/main/combo/${combos[i].img}.png" alt="${i + 1}">
+            </div>
+            <div class="item-text">
+                <div class="item-price">
+                    <p class="new-price">${combos[i].price}</p>
+                    <p class="old-price">${combos[i].oldPrice}</p>
+                </div>
+                <div class="item-name">
+                    <h5>${combos[i].name}</h5>
+                </div>
+                <div class="item-info">
+                    <p>${combos[i].info}</p>
+                </div>
+                <div class="item-buttons">
+                    <div class="item-buy"><button class="button-buy">Buy now</button></div>
+                    <div class="item-details"><button class="button-details">Details</button></div>
+                </div>
+            </div>
+            `;
+
+        comboList.append(item);
+    }
+}
+
+giftsetShow();
+productsShow();
+comboShow();
+
 const headerCartQuantity = document.querySelector('.header-cart__quantity'),
     headerCartQuantityText = headerCartQuantity.querySelector('p');
 
-productsShow();
-
-const cartDataRefresh = () => {
+const cartDataRefresh = () => { // after adding item to the cart tracking changes of quantity of the items
 
     const quantityButtons = document.querySelectorAll('.cart-item__quantity-minus, .cart-item__quantity-add');
 
@@ -192,15 +249,18 @@ const cartDataRefresh = () => {
 };
 
 const buttonsBuy = document.querySelectorAll('.button-buy'),
-    buyModal = document.querySelector('.buy-modal__wrap');
+    buyModal = document.querySelector('.buy-modal__wrap'),
+    buyModalWindow = buyModal.querySelector('.buy-modal');
 
-let cartModal = document.querySelector('.cart-modal__wrap'),
-    cartList = cartModal.querySelector('.cart-modal__list'),
-    cartClose = cartModal.querySelector('.cart-modal__close'),
-    cartTotal = cartModal.querySelector('.cart-modal__total p');
+let cartModal       = document.querySelector('.cart-modal__wrap'),
+    cartModalWindow = cartModal.querySelector('.cart-modal'),
+    cartList        = cartModal.querySelector('.cart-modal__list'),
+    cartClose       = cartModal.querySelector('.cart-modal__close'),
+    cartTotal       = cartModal.querySelector('.cart-modal__total p');
 
 cartClose.addEventListener('click', () => {
     cartModal.style.display = '';
+    document.body.classList.remove('ov-hidden');
 });
 
 const headerCart = document.querySelector('.header-cart');
@@ -208,16 +268,19 @@ const headerCart = document.querySelector('.header-cart');
 headerCart.addEventListener('click', () => {
     let cartList = cartModal.querySelector('.cart-modal__list');
 
-    if (cartList.textContent !== '') {
+    if (cartList.childNodes.length > 0) {
         cartModal.style.display = 'flex';
+        cartModalWindow.classList.add('popup');
     } else {
         alert("Sorry, your cart is empty now. Add some items to continue shopping");
     }
 
 });
 
+// update total price of the whole cart
+
 const totalPrice = () => {
-    if (cartList.textContent) {
+    if (cartList.textContent) { // checking whether cart has any items
         let totalPrice = 0;
         let cartItems = cartList.querySelectorAll('.cart-item');
 
@@ -230,14 +293,12 @@ const totalPrice = () => {
     }
 };
 
-const cartItemAdd = (productName) => {
+const cartItemAdd = (productName) => { // adding item to the cart
 
-    console.log(productName);
+    const data = [...products, ...giftsets, ...combos];
 
-    const data = [...products, ...giftsets];
-
-    data.forEach(product => {
-        if (product.name === productName) {
+    data.forEach(product => { // going through products data
+        if (product.name === productName) { // getting a match
             let cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
@@ -262,53 +323,25 @@ const cartItemAdd = (productName) => {
             totalPrice(cartItem);
         }
     });
+
     buyModal.style.display = 'flex';
+    buyModalWindow.classList.add('popup');
+    document.body.classList.add('ov-hidden');
 
     const buttonContinue = buyModal.querySelector('.button-continue'),
         buttonCart = buyModal.querySelector('.button-cart');
 
     buttonContinue.addEventListener('click', () => {
         buyModal.style.display = '';
-        document.body.style.overflowY = '';
+        document.body.classList.remove('ov-hidden');
     });
 
     buttonCart.addEventListener('click', () => {
         buyModal.style.display = '';
         cartModal.style.display = 'flex';
-        document.body.style.overflowY = '';
+        cartModalWindow.classList.add('popup');
     });
 }
-
-buttonsBuy.forEach(button => {
-    button.addEventListener('click', () => {
-        let productName; // name of the product
-        if (button.parentNode.className === 'product-buy') {
-            productName = button.closest('.product-right').children[1].textContent.trim();
-        } else if (button.parentNode.className === 'tab-buy') {
-            productName = button.closest('.tab-text').children[1].textContent.trim();
-        }
-
-
-        console.log(productName);
-        let cartItems = cartModal.querySelectorAll('.cart-item');
-
-        if (cartItems.length > 0) {
-            let cartItemsArr = Array.from(cartItems);
-
-            if (cartItemsArr.every((item) => item.querySelector('.cart-item__name').textContent.trim() !== productName)) {
-                cartItemAdd(productName);
-                headerCartQuantityRefresh();
-                cartDataRefresh();
-            } else {
-                alert('You have already added this item to your cart. You may increase the quantity of it via cart window');
-            }
-        } else {
-            cartItemAdd(productName);
-            headerCartQuantityRefresh();
-            cartDataRefresh();
-        }
-    });
-});
 
 // refresh quantity of items in cart
 
@@ -322,6 +355,48 @@ const headerCartQuantityRefresh = () => {
         headerCartQuantity.style.display = '';
     }
 }
+
+const cartItemsCheck = (arr, selector, name) => { // checks if there is any matching products
+    return arr.every(item => item.querySelector(`.${selector}`).textContent.trim() !== name);
+}
+
+buttonsBuy.forEach(button => { // tracking click on button's-buy
+    button.addEventListener('click', () => {      
+        let productName; // name of the product
+
+        switch (button.parentNode.className) { // finding the name of the goods
+            case 'product-buy':
+                productName = button.closest('.product-right').children[1].textContent.trim();
+                break;
+
+            case 'tab-buy':
+                productName = button.closest('.tab-text').children[1].textContent.trim();
+                break;
+
+            case 'item-buy':
+                productName = button.closest('.item-text').children[1].textContent.trim();
+                break;
+        }
+
+        let cartItems = cartModal.querySelectorAll('.cart-item');
+
+        if (cartItems.length > 0) {
+            let cartItemsArr = Array.from(cartItems);
+
+            if (cartItemsCheck(cartItemsArr, 'cart-item__name', productName)) { // checking if this item is already in the cart
+                cartItemAdd(productName);
+                headerCartQuantityRefresh();
+                cartDataRefresh();
+            } else {
+                alert('You have already added this item to your cart. You may increase the quantity of it via cart window');
+            }
+        } else {
+            cartItemAdd(productName);
+            headerCartQuantityRefresh();
+            cartDataRefresh();
+        }
+    });
+});
 
 // giftset tabs
 

@@ -14,6 +14,17 @@ html {
     margin: auto;
 }
 
+.ov-hidden {
+    overflow-y: hidden;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .section-title {
     text-align: center;
     font-size: 20px;
@@ -388,6 +399,7 @@ body {
     }
 
     .buy-modal, .cart-modal {
+        position: fixed !important;
         background: #fff;
         padding: 40px 60px;
         border-radius: 6px;
@@ -406,16 +418,16 @@ body {
             align-items: center;
             display: none;          
         }
-
-        p {
-            margin-bottom: 20px;
-        }
     }
 
     .cart-modal {
         position: relative;
 
         &__properties {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(205, 205, 205, 1);
+            
+
             ul {
                 display: flex;
                 justify-content: center;
@@ -436,12 +448,14 @@ body {
         }
 
         &__list {
+            margin-bottom: 30px;
             .cart-item {
-                padding: 10px;
+                padding: 10px 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 text-align: center;
+                border-bottom: 1px solid rgba(205, 205, 205, 1);
                 
                 
                 &__name {
@@ -452,7 +466,7 @@ body {
                     min-height: 44px;
                     display: flex;
                     justify-content: center;
-                    align-items: flex-start;
+                    align-items: center;
 
                     &-minus, &-add {
                         color: #fff;
