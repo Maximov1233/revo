@@ -1,0 +1,74 @@
+@media screen and (max-width: 1401px) {
+  body .header-text {
+    font-size: 20px;
+  }
+  body .header-text span {
+    padding: 7px;
+  }
+  body .header-nav {
+    min-width: unset;
+  }
+  body .main .benefits-list {
+    justify-content: center;
+  }
+  body .main .products {
+    background: none;
+  }
+  body .main .giftset-list__tabs .tab-image {
+    display: none;
+  }
+}
+@media screen and (max-width: 901px) {
+  body .product-right {
+    min-height: 350px;
+  }
+  body .product-info {
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+  body .product-buttons {
+    flex-direction: column;
+  }
+  body .header {
+    background: url(../img/header/background.png) no-repeat center left;
+  }
+  body .header-left {
+    margin-left: 20px;
+  }
+  body .header-text {
+    display: none;
+  }
+  body .header-right {
+    padding: 20px;
+    font-size: 14px;
+  }
+  body .main .products-list .product {
+    flex-direction: column;
+    max-width: 250px;
+    max-height: unset;
+    min-height: 100px;
+    margin: 20px;
+  }
+  body .main .giftset-list__tabs .tab {
+    padding: 30px;
+    max-height: 300px;
+    text-align: center;
+  }
+  body .main .giftset-list__tabs .tab-info, body .main .giftset-list__tabs .tab-origin__wrap {
+    display: none;
+  }
+  body .main .giftset-list__tabs .tab-buttons {
+    flex-direction: column;
+  }
+  body .main .giftset-list__tabs .tab-buttons div {
+    margin: 0;
+  }
+  body .main .giftset-list__toggler .toggle {
+    width: 50px;
+  }
+}
+@media screen and (max-width: 601px) {
+  body .main .combo-list .item-image {
+    display: none;
+  }
+}/*# sourceMappingURL=media.css.map */

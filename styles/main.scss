@@ -110,11 +110,17 @@ body {
 
     .header {
         background: url(../img/header/background.png) no-repeat center right 35%;
+        object-fit: cover;
         color: #EDF0F5;
         text-transform: uppercase;
-        display: flex;
-        justify-content: space-between;
-        min-height: 800px;
+        
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            min-height: 800px;
+        }
 
         &-left {
             margin-left: 200px;
@@ -190,6 +196,7 @@ body {
         .benefits {
             &-list {
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
             }
@@ -197,6 +204,7 @@ body {
             .benefit {
                 text-align: center;
                 max-width: 220px;
+                margin: 20px;
 
                 &-image {
                     margin-bottom: 40px;
@@ -213,8 +221,7 @@ body {
         .products {
             background: url(../img/main/products/background.png) no-repeat left top;
 
-            .products-list {
-                max-height: 600px;
+            &-list {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -246,12 +253,13 @@ body {
             &-list {
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: stretch;
 
                 &__tabs {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    margin-left: 50px;
     
                     .tab {
                         display: flex;
@@ -319,9 +327,11 @@ body {
                     flex-direction: column;
                     justify-content: space-between;
                     align-items: center;
+                    margin-right: 50px;
+
                     .toggle {
                         width: 100px;
-                        height: 150px;
+                        height: 100%;
                         background: #EDF0F5;
                         display: flex;
                         justify-content: center;
@@ -355,6 +365,7 @@ body {
         .combo {
             &-list {
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 .item {

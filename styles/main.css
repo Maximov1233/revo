@@ -110,10 +110,15 @@ body {
 }
 body .header {
   background: url(../img/header/background.png) no-repeat center right 35%;
+  -o-object-fit: cover;
+     object-fit: cover;
   color: #EDF0F5;
   text-transform: uppercase;
+}
+body .header .container {
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
   min-height: 800px;
 }
 body .header-left {
@@ -175,12 +180,14 @@ body .header-nav ul li a {
 }
 body .main .benefits-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 body .main .benefits .benefit {
   text-align: center;
   max-width: 220px;
+  margin: 20px;
 }
 body .main .benefits .benefit-image {
   margin-bottom: 40px;
@@ -193,14 +200,13 @@ body .main .benefits .benefit-title {
 body .main .products {
   background: url(../img/main/products/background.png) no-repeat left top;
 }
-body .main .products .products-list {
-  max-height: 600px;
+body .main .products-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-body .main .products .products-list .product {
+body .main .products-list .product {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -211,21 +217,22 @@ body .main .products .products-list .product {
   filter: drop-shadow(0px 4px 24px rgba(205, 205, 205, 0.5));
   cursor: pointer;
 }
-body .main .products .products-list .product-image {
+body .main .products-list .product-image {
   max-height: 250px;
 }
-body .main .products .products-list .product-right {
+body .main .products-list .product-right {
   padding: 40px;
 }
 body .main .giftset-list {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 body .main .giftset-list__tabs {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 50px;
 }
 body .main .giftset-list__tabs .tab {
   display: flex;
@@ -279,10 +286,11 @@ body .main .giftset-list__toggler {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-right: 50px;
 }
 body .main .giftset-list__toggler .toggle {
   width: 100px;
-  height: 150px;
+  height: 100%;
   background: #EDF0F5;
   display: flex;
   justify-content: center;
@@ -305,6 +313,7 @@ body .main .giftset-list__toggler .toggle-active p {
 }
 body .main .combo-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
