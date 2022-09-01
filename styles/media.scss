@@ -38,7 +38,7 @@
                                 display: none;
                             }
                         }
-                    }  
+                    }
                 }
             }
         }
@@ -61,12 +61,23 @@
 
             &-buttons {
                 flex-direction: column;
-                // justify-content: center;
+            }
+        }
+
+        .modal {
+            &-buttons {
+                flex-direction: column;
+                justify-content: center;
+
+                div {
+                    margin: 5px 0;
+                }
             }
         }
 
         .header {
             background: url(../img/header/background.png) no-repeat center left;
+
             &-left {
                 margin-left: 20px;
             }
@@ -90,7 +101,7 @@
                         max-height: unset;
                         min-height: 100px;
                         margin: 20px;
-                        
+
                     }
                 }
             }
@@ -103,12 +114,14 @@
                             max-height: 300px;
                             text-align: center;
 
-                            &-info, &-origin__wrap {
+                            &-info,
+                            &-origin__wrap {
                                 display: none;
                             }
 
                             &-buttons {
                                 flex-direction: column;
+
                                 div {
                                     margin: 0;
                                 }
@@ -124,22 +137,36 @@
                 }
             }
         }
+
+        .buy-modal {
+            padding: 20px;
+        }
+
+        .cart-modal {
+            padding: 20px;
+            min-width: 100%;
+        }
     }
 }
 
 @media screen and (max-width: 601px) {
     body {
-        .header {
-
+        .modal {
+            
+            &-buttons {
+                button {
+                    font-size: 14px;
+                }
+            }
         }
+    }
 
-        .main {
-            .combo {
-                &-list {
-                    .item {
-                        &-image {
-                            display: none;
-                        }
+    .main {
+        .combo {
+            &-list {
+                .item {
+                    &-image {
+                        display: none;
                     }
                 }
             }

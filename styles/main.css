@@ -18,6 +18,10 @@ html {
   overflow-y: hidden;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .popup {
   position: fixed;
   top: 50%;
@@ -350,14 +354,18 @@ body .footer .copyright {
   font-style: italic;
   color: #415167;
 }
-body .buy-modal, body .cart-modal {
+body .buy-modal,
+body .cart-modal,
+body .details-modal {
   position: fixed !important;
   background: #fff;
   padding: 40px 60px;
   border-radius: 6px;
   text-align: center;
 }
-body .buy-modal__wrap, body .cart-modal__wrap {
+body .buy-modal__wrap,
+body .cart-modal__wrap,
+body .details-modal__wrap {
   width: 100%;
   min-height: 100%;
   position: absolute;
@@ -366,13 +374,18 @@ body .buy-modal__wrap, body .cart-modal__wrap {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
 }
+body .buy-modal p,
+body .cart-modal p,
+body .details-modal p {
+  margin-bottom: 10px;
+}
 body .cart-modal {
   position: relative;
+  min-width: 60%;
 }
 body .cart-modal__properties {
   padding: 10px 0;
@@ -384,31 +397,33 @@ body .cart-modal__properties ul {
   align-items: center;
 }
 body .cart-modal__properties ul .li-name {
-  min-width: 600px;
+  min-width: 50%;
 }
 body .cart-modal__properties ul .li-quantity {
-  min-width: 100px;
+  min-width: 25%;
 }
 body .cart-modal__properties ul .li-price {
-  min-width: 200px;
+  min-width: 25%;
 }
 body .cart-modal__list {
   margin-bottom: 30px;
 }
 body .cart-modal__list .cart-item {
-  padding: 10px 0;
+  padding: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-bottom: 1px solid rgb(205, 205, 205);
 }
+body .cart-modal__list .cart-item p {
+  margin-bottom: 0;
+}
 body .cart-modal__list .cart-item__name {
-  min-width: 600px;
+  min-width: 50%;
 }
 body .cart-modal__list .cart-item__quantity {
-  min-width: 100px;
-  min-height: 44px;
+  min-width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -423,12 +438,13 @@ body .cart-modal__list .cart-item__quantity-text {
   text-align: top;
 }
 body .cart-modal__list .cart-item__price {
-  min-width: 200px;
+  min-width: 25%;
 }
 body .cart-modal__total {
   text-align: right;
 }
-body .cart-modal__close {
+body .cart-modal__close,
+body .details-modal__close {
   position: absolute;
   top: 10px;
   right: 10px;

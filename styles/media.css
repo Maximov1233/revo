@@ -29,6 +29,13 @@
   body .product-buttons {
     flex-direction: column;
   }
+  body .modal-buttons {
+    flex-direction: column;
+    justify-content: center;
+  }
+  body .modal-buttons div {
+    margin: 5px 0;
+  }
   body .header {
     background: url(../img/header/background.png) no-repeat center left;
   }
@@ -66,9 +73,19 @@
   body .main .giftset-list__toggler .toggle {
     width: 50px;
   }
+  body .buy-modal {
+    padding: 20px;
+  }
+  body .cart-modal {
+    padding: 20px;
+    min-width: 100%;
+  }
 }
 @media screen and (max-width: 601px) {
-  body .main .combo-list .item-image {
+  body .modal-buttons button {
+    font-size: 14px;
+  }
+  .main .combo-list .item-image {
     display: none;
   }
 }/*# sourceMappingURL=media.css.map */

@@ -231,6 +231,7 @@ const cartDataRefresh = () => { // after adding item to the cart tracking change
 
                     if (!itemsList.textContent) {
                         cartModal.style.display = '';
+                        document.body.classList.remove('ov-hidden');
                         setTimeout(() => {
                             alert("Sorry, your cart is empty now. Add some items to continue shopping");
                         }, 200);
@@ -274,8 +275,67 @@ headerCart.addEventListener('click', () => {
     } else {
         alert("Sorry, your cart is empty now. Add some items to continue shopping");
     }
-
 });
+
+const buttonsDetails = document.querySelectorAll('.button-details'),
+    detailsModal = document.querySelector('.details-modal__wrap'),
+    detailsModalWindow = detailsModal.querySelector('.details-modal'),
+    detailsModalText = detailsModal.querySelector('.details-modal__text'),
+    detailsModalClose = detailsModal.querySelector('.details-modal__close');
+
+buttonsDetails.forEach(button => {
+    button.addEventListener('click', () => {
+        let productName,
+            type;        // name and type of the product
+
+        switch (button.parentNode.className) { // finding the name of the goods
+            case 'product-details':
+                productName = button.closest('.product-right').children[1].textContent.trim();
+                type = 'products';
+                break;
+
+            case 'tab-details':
+                productName = button.closest('.tab-text').children[1].textContent.trim();
+                type = 'giftsets';
+                break;
+
+            case 'item-details':
+                productName = button.closest('.item-text').children[1].textContent.trim();
+                type = 'combos';
+                break;
+        }
+
+        const data = [...products, ...giftsets, ...combos];
+
+        data.forEach(product => {
+            if (product.name === productName) {
+                let info,
+                beans,
+                height;
+
+                if (type === 'giftsets') {
+                    info = product.info,
+                    beans = product.beans,
+                    height = product.height;
+
+                    detailsModalText.innerHTML = `
+                        <p>${info}</p>
+                        <p>${beans}</p>
+                        <p>${height}</p>
+                    `;
+                } 
+
+                detailsModal.style.display = 'flex';
+                detailsModalWindow.classList.add('popup');
+
+                detailsModalClose.addEventListener('click', () => {
+                    detailsModal.style.display = '';
+                });
+
+            }
+        });
+    });
+});    
 
 // update total price of the whole cart
 
@@ -359,6 +419,24 @@ const headerCartQuantityRefresh = () => {
 const cartItemsCheck = (arr, selector, name) => { // checks if there is any matching products
     return arr.every(item => item.querySelector(`.${selector}`).textContent.trim() !== name);
 }
+
+// const productNameFunction = (button) => {
+//     let productName;
+//     console.log(button);
+//     switch (button) { // finding the name of the goods
+//         case 'product-buy':
+//             return productName = button.closest('.product-right').children[1].textContent.trim();
+         
+
+//         case 'tab-buy':
+//             return productName = button.closest('.tab-text').children[1].textContent.trim();
+           
+
+//         case 'item-buy':
+//             return productName = button.closest('.item-text').children[1].textContent.trim();
+            
+//     }
+// }
 
 buttonsBuy.forEach(button => { // tracking click on button's-buy
     button.addEventListener('click', () => {      
