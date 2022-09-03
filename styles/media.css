@@ -80,6 +80,9 @@
     padding: 20px;
     min-width: 100%;
   }
+  body .details-modal .tab-origin__wrap {
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 601px) {
   body .modal-buttons button {

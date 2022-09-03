@@ -107,6 +107,30 @@ button {
   align-items: center;
 }
 
+.tab-origin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab-origin__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.tab-origin__image {
+  margin-right: 10px;
+}
+.tab-origin__text {
+  margin-right: 60px;
+}
+.tab-origin__text p {
+  font-size: 16px;
+}
+.tab-origin__text p:nth-child(2) {
+  font-weight: 600;
+}
+
 body {
   background-color: #F9FBFF;
   color: #151D28;
@@ -255,29 +279,6 @@ body .main .giftset-list__tabs .tab:first-child {
 }
 body .main .giftset-list__tabs .tab-image {
   margin-left: -200px;
-}
-body .main .giftset-list__tabs .tab-origin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body .main .giftset-list__tabs .tab-origin__wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-}
-body .main .giftset-list__tabs .tab-origin__image {
-  margin-right: 10px;
-}
-body .main .giftset-list__tabs .tab-origin__text {
-  margin-right: 60px;
-}
-body .main .giftset-list__tabs .tab-origin__text p {
-  font-size: 16px;
-}
-body .main .giftset-list__tabs .tab-origin__text p:nth-child(2) {
-  font-weight: 600;
 }
 body .main .giftset-list__tabs .tab-buttons {
   justify-content: space-between;
@@ -449,4 +450,12 @@ body .details-modal__close {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+body .cart-modal,
+body .details-modal {
+  overflow-y: scroll;
+}
+body .cart-modal .tab-origin__wrap,
+body .details-modal .tab-origin__wrap {
+  margin-bottom: 0;
 }/*# sourceMappingURL=main.css.map */

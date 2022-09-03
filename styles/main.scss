@@ -109,6 +109,37 @@ button {
     }
 }
 
+.tab {
+    &-origin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        &__image {
+            margin-right: 10px;
+        }
+
+        &__text {
+            margin-right: 60px;
+
+            p {
+                font-size: 16px;
+
+                &:nth-child(2) {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
 body {
     background-color: #F9FBFF;
     color: #151D28;
@@ -288,45 +319,42 @@ body {
                             margin-left: -200px;
                         }
 
-                        &-origin {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                        // &-origin {
+                        //     display: flex;
+                        //     justify-content: center;
+                        //     align-items: center;
 
-                            &__wrap {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                margin-bottom: 50px;
-                            }
+                        //     &__wrap {
+                        //         display: flex;
+                        //         justify-content: space-between;
+                        //         align-items: center;
+                        //         margin-bottom: 50px;
+                        //     }
 
-                            &__image {
-                                margin-right: 10px;
-                            }
+                        //     &__image {
+                        //         margin-right: 10px;
+                        //     }
 
-                            &__text {
-                                margin-right: 60px;
+                        //     &__text {
+                        //         margin-right: 60px;
 
-                                p {
-                                    font-size: 16px;
+                        //         p {
+                        //             font-size: 16px;
 
-                                    &:nth-child(2) {
-                                        font-weight: 600;
-                                    }
-                                }
-                            }
+                        //             &:nth-child(2) {
+                        //                 font-weight: 600;
+                        //             }
+                        //         }
+                        //     }
 
 
-                        }
+                        // }
 
                         &-buttons {
                             justify-content: space-between;
 
                             div {
                                 margin-right: 60px;
-                                // button {
-                                //     padding: 15px 40px; on the future
-                                // }
                             }
                         }
                     }
@@ -367,10 +395,6 @@ body {
                     }
                 }
             }
-
-
-
-
         }
 
         .combo {
@@ -540,5 +564,14 @@ body {
             right: 10px;
             cursor: pointer;
         }
+
+        &-modal {
+            overflow-y: scroll;
+            .tab-origin {
+                &__wrap {
+                    margin-bottom: 0;
+                }
+            }
+        } 
     }
 }

@@ -146,6 +146,12 @@
             padding: 20px;
             min-width: 100%;
         }
+
+        .details-modal {
+            .tab-origin__wrap {
+                flex-direction: column;
+            }
+        }
     }
 }
 

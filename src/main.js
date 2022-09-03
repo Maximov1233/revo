@@ -320,8 +320,26 @@ buttonsDetails.forEach(button => {
 
                     detailsModalText.innerHTML = `
                         <p>${info}</p>
-                        <p>${beans}</p>
-                        <p>${height}</p>
+                        <div class="tab-origin__wrap">
+                            <div class="tab-origin">
+                                <div class="tab-origin__image tab-beans__image">
+                                    <img src="./img/main/giftset/beans.png" alt="beans">
+                                </div>
+                                <div class="tab-origin__text tab-beans__text">
+                                    <p>Kind of bean</p>
+                                    <p>${beans}</p>
+                                </div>
+                            </div>
+                            <div class="tab-origin">
+                                <div class="tab-origin__image tab-height__image">
+                                    <img src="./img/main/giftset/mountain.png" alt="mountain">
+                                </div>
+                                <div class="tab-origin__text tab-height__text">
+                                    <p>Height</p>
+                                    <p>${height}</p>
+                                </div>
+                            </div>
+                        </div>
                     `;
                 } 
 
